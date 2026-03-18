@@ -1,4 +1,0 @@
-GET http://localhost:9292
-
-###
-GET http://localhost:9292/test1
