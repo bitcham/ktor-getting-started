@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.plugins.callLogging
 import io.ktor.server.application.Application
 import io.ktor.server.netty.EngineMain
 import io.ktor.server.response.respondText
@@ -25,6 +26,7 @@ data class Sample(
 
 fun Application.module() {
     contentNegotiation()
+    callLogging()
 
     routing {
         get("/") {
@@ -33,13 +35,11 @@ fun Application.module() {
 
         get("/sample") {
             call.respond(Sample("gmail.com", LocalDateTime.now()))
-            log.info("Responded with sample data")
         }
 
         post("/sample") {
             val sample = call.receive<Sample>()
             call.respond(sample)
-            log.info("Received sample: $sample")
         }
     }
 }

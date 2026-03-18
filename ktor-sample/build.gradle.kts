@@ -66,6 +66,8 @@ dependencies {
 
     // Jakarta Mail
     implementation("com.sun.mail:jakarta.mail:$jakartaMailVersion")
+    implementation("io.ktor:ktor-server-call-logging:3.4.1")
+    implementation("io.ktor:ktor-client-logging:3.4.1")
 
     testImplementation(kotlin("test"))
 }
