@@ -14,7 +14,7 @@ plugins {
     id("io.ktor.plugin") version "3.4.1"
 }
 
-group = "org.ktor_lecture"
+group = "com.example"
 version = "1.0-SNAPSHOT"
 
 repositories {

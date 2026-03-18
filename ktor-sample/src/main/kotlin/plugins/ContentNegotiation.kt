@@ -1,4 +1,4 @@
-package plugins
+package com.example.plugins
 
 import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.core.JsonParser
@@ -14,6 +14,7 @@ import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME
 import java.time.temporal.ChronoUnit
 
@@ -29,7 +30,7 @@ fun Application.contentNegotiation() {
             ) {
                 gen.writeString(
                     value.truncatedTo(ChronoUnit.SECONDS)
-                        .atZone(java.time.ZoneId.systemDefault())
+                        .atZone(ZoneId.systemDefault())
                         .format(ISO_LOCAL_DATE_TIME)
                 )
             }
